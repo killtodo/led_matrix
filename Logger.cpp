@@ -10,14 +10,12 @@ Logger::Logger(bool on) {
 }
 
 void Logger::debug(const char message[]) {
-//    Serial.println(_LOG_ON_);
-    if (_LOG_ON_) {                 //FIXME why always true ??
+    if (_LOG_ON_) {
         Serial.println(message);
     }
 }
 
 void Logger::debug(int num) {
-//    Serial.println(_LOG_ON_);
     if (_LOG_ON_) {
         Serial.println(num);
     }

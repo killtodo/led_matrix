@@ -19,7 +19,16 @@ const int CIRCLES[CIRCLE_SIZE][15] = { { 9, 0, 1, 2, 3, 4, 5, 6, 7, 8 }, { 12, 0
         12, 0, 1, 4, 7, 8, 5, 2, 1, 4, 7, 6, 3 }, { 12, 0, 3, 4, 5, 8, 7, 6, 3, 4, 5, 2, 1 }, { 8, 0, 4, 8, 5, 2, 4, 6,
         3 } };
 
-Logger logger = new Logger(0);
+Logger logger(false);
+
+void clear() {
+    for (int i = 0; i < MATRIX_SIZE; i++) {
+        digitalWrite(ROWS[i], LOW);
+    }
+    for (int i = 0; i < MATRIX_SIZE; i++) {
+        digitalWrite(COLS[i], LOW);
+    }
+}
 
 void setup() {
     Serial.begin(9600);
@@ -32,13 +41,7 @@ void setup() {
     pinMode(C2, OUTPUT);
     pinMode(C3, OUTPUT);
 
-    digitalWrite(R1, LOW);
-    digitalWrite(R2, LOW);
-    digitalWrite(R3, LOW);
-
-    digitalWrite(C1, LOW);
-    digitalWrite(C2, LOW);
-    digitalWrite(C3, LOW);
+    clear();
 }
 
 void lightMatrix(int pos) {
@@ -94,28 +97,5 @@ void loop() {
     lightCircle(2, sleep);
     lightCircle(3, sleep);
     lightCircle(4, sleep);
-
-//    lightMatrix(0);
-//    delay(500);
-//    lightMatrix(1);
-//    delay(500);
-//    lightMatrix(2);
-//    delay(500);
-
-//    digitalWrite(R1, HIGH);
-//    digitalWrite(R2, LOW);
-//    digitalWrite(R3, LOW);
-//    digitalWrite(C1, LOW);
-//    digitalWrite(C2, HIGH);
-//    digitalWrite(C3, HIGH);
-//    delay(500);
-//
-//    digitalWrite(R1, HIGH);
-//    digitalWrite(R2, LOW);
-//    digitalWrite(R3, LOW);
-//    digitalWrite(C1, HIGH);
-//    digitalWrite(C2, LOW);
-//    digitalWrite(C3, HIGH);
-//    delay(500);
 
 }
